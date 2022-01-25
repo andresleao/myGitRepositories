@@ -2,6 +2,7 @@ import * as S from './styled';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BiCommentDetail } from 'react-icons/bi';
 
 function RepositoryDetails({ repositories }) {
   const { id } = useParams();
@@ -10,7 +11,7 @@ function RepositoryDetails({ repositories }) {
 
   useEffect(() => {
     repositories
-      .filter((teste) => Number(teste.id) === Number(id))
+      .filter((repository) => Number(repository.id) === Number(id))
       .map((repository) => setRepos(repository));
 
     console.log(repositories);
@@ -23,44 +24,39 @@ function RepositoryDetails({ repositories }) {
         <S.Title>Repository Details</S.Title>
         <S.Details>
           <S.Avatar>
-            <S.Photo src={repos.owner.avatar_url} alt="André Leão" />
+            <BiCommentDetail size={210} color={'#f25bdb'} />
           </S.Avatar>
 
           <S.ItemContainer>
             <S.Item>
               <span style={{ color: '#f25bdb', marginRight: '.5rem' }}>
                 Id:
-              </span>{' '}
+              </span>
               {repos.id}
             </S.Item>
             <S.Item>
               <span style={{ color: '#f25bdb', marginRight: '.5rem' }}>
                 Name:
-              </span>{' '}
+              </span>
               {repos.name}
             </S.Item>
-            <S.Item>
-              <span style={{ color: '#f25bdb', marginRight: '.5rem' }}>
-                Owner:
-              </span>{' '}
-              {repos.owner.login}
-            </S.Item>
+
             <S.Item>
               <span style={{ color: '#f25bdb', marginRight: '.5rem' }}>
                 Url:
-              </span>{' '}
+              </span>
               {repos.html_url}
             </S.Item>
             <S.Item>
               <span style={{ color: '#f25bdb', marginRight: '.5rem' }}>
-                Created Al:
-              </span>{' '}
+                Created AT:
+              </span>
               {repos.created_at}
             </S.Item>
             <S.Item>
               <span style={{ color: '#f25bdb', marginRight: '.5rem' }}>
                 Visibility:
-              </span>{' '}
+              </span>
               {repos.visibility}
             </S.Item>
           </S.ItemContainer>

@@ -51,6 +51,7 @@ export const Details = styled.ul`
     'AV CT'
     'AV CT';
   margin-left: 2rem;
+  margin-top: 1.5rem;
 `;
 
 export const ItemContainer = styled.div`
